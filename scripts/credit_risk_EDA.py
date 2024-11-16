@@ -183,6 +183,26 @@ class CreditRiskEDA:
         sns.heatmap(corr_matrix, annot=True, cmap="coolwarm", fmt='.2f', linewidths=0.5)
         plt.title(f"{method.capitalize()} Correlation Matrix")
         plt.show()
+    
+    def detect_outliers(self, cols):
+        """
+        Function to plot boxplots for numerical features to detect outliers.
+        
+        Parameters:
+        -----------
+        df : pandas.DataFrame
+            The DataFrame containing the dataset to be analyzed.
+        numerical_cols : list
+            List of numerical columns to plot.
+        """
+        # num_cols = self.df.select_dtypes(include=[np.number]).columns
+        plt.figure(figsize=(15, 10))
+        for i, col in enumerate(cols, 1):
+            plt.subplot(3, 3, i)
+            sns.boxplot(y=self.df[col], color='orange')
+            plt.title(f'Boxplot of {col}', fontsize=12)
+        plt.tight_layout()
+        plt.show()
 
     def check_missing_values(self, visualize=True):
         """
