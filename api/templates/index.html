@@ -1,0 +1,222 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Model Performance Evaluation</title>
+    <link href="https://fonts.googleapis.com/css2?family=Roboto:wght@400;700&display=swap" rel="stylesheet">
+    <style>
+        body {
+            font-family: 'Roboto', sans-serif;
+            margin: 0;
+            padding: 0;
+            background-color: #f4f4f4;
+        }
+        header {
+            background-color: #3b4a5d;
+            padding: 1rem;
+            color: white;
+            text-align: center;
+        }
+        h1 {
+            margin: 0;
+            font-size: 2.5rem;
+        }
+        .container {
+            max-width: 1200px;
+            margin: 0 auto;
+            padding: 2rem;
+        }
+        .section {
+            margin-bottom: 3rem;
+        }
+        .card {
+            background: white;
+            box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
+            border-radius: 8px;
+            padding: 2rem;
+            margin-bottom: 2rem;
+        }
+        .card h2 {
+            color: #333;
+            font-size: 1.8rem;
+            margin-bottom: 1rem;
+        }
+        .table {
+            width: 100%;
+            border-collapse: collapse;
+        }
+        .table th, .table td {
+            padding: 12px;
+            text-align: center;
+            border: 1px solid #ddd;
+        }
+        .table th {
+            background-color: #3b4a5d;
+            color: white;
+        }
+        .table tr:nth-child(even) {
+            background-color: #f9f9f9;
+        }
+        .footer {
+            background-color: #3b4a5d;
+            color: white;
+            text-align: center;
+            padding: 1rem;
+            position: fixed;
+            bottom: 0;
+            width: 100%;
+        }
+        .btn {
+            display: inline-block;
+            background-color: #5cb85c;
+            color: white;
+            padding: 10px 20px;
+            text-decoration: none;
+            border-radius: 5px;
+            transition: background-color 0.3s;
+        }
+        .btn:hover {
+            background-color: #4cae4c;
+        }
+    </style>
+</head>
+<body>
+    <header>
+        <h1>Model Performance Evaluation Dashboard For Bati Bank</h1>
+    </header>
+
+    <div class="container">
+        <!-- Adversarial Testing Metrics Section -->
+        <div class="section">
+            <div class="card">
+                <h2>Adversarial Testing Results</h2>
+                <p>Below are the performance metrics for adversarial testing on the models with edge cases and noise added to the test data.</p>
+                <table class="table">
+                    <thead>
+                        <tr>
+                            <th>Model</th>
+                            <th>Accuracy</th>
+                            <th>Precision</th>
+                            <th>Recall</th>
+                            <th>F1 Score</th>
+                            <th>ROC AUC</th>
+                        </tr>
+                    </thead>
+                    <tbody>
+                        <!-- Loop through adversarial metrics and display results 
+                        {% for model, metrics in adversarial_metrics.items() %}-->
+                        <tr>
+                            <td>Logistic Regression</td>
+                            <td>0.517780 </td>
+                            <td>0.545417</td>
+                            <td>0.519988</td>
+                            <td>0.532399</td>
+                            <td>0.527191</td>
+                        </tr>
+                        <!--{% endfor %}-->
+                    </tbody>
+                    <tbody>
+                        <!-- Loop through adversarial metrics and display results -->
+                        <!--or model, metrics in adversarial_metrics.items() %}-->
+                        <tr>
+                            <td>Decision Tree Classifier</td>
+                            <td>0.502435 </td>
+                            <td>0.538864</td>
+                            <td>0.398869</td>
+                            <td>0.458416</td>
+                            <td>0.513702</td>
+                        </tr>
+                       <!--{% endfor %}-->
+                    </tbody>
+                    <tbody>
+                        <!-- Loop through adversarial metrics and display results -->
+                        <!--or model, metrics in adversarial_metrics.items() %}-->
+                        <tr>
+                            <td>Random Forest Classifier</td>
+                            <td>0.531867</td>
+                            <td>0.586646</td>
+                            <td>0.383494</td>
+                            <td>0.463799</td>
+                            <td>0.570041</td>
+                        </tr>
+                       <!--{% endfor %}-->
+                    </tbody>
+                </table>
+            </div>
+        </div>
+
+        <!-- Stability Analysis Section -->
+        <div class="section">
+            <div class="card">
+                <h2>Stability Analysis Results</h2>
+                <p>Below are the performance metrics after introducing slight perturbations to the input features to assess model stability.</p>
+                <table class="table">
+                    <thead>
+                        <tr>
+                            <th>Model</th>
+                            <th>Accuracy</th>
+                            <th>Precision</th>
+                            <th>Recall</th>
+                            <th>F1 Score</th>
+                            <th>ROC AUC</th>
+                        </tr>
+                    </thead>
+                    <tbody>
+                        <!-- Loop through stability metrics and display results
+                        {% for model, metrics in stability_metrics.items() %} -->
+                        <tr>
+                            <td>Logistic Regression</td>
+                            <td>0.549516</td>
+                            <td>0.569469</td>
+                            <td>0.601329</td>
+                            <td>0.584966</td>
+                            <td>0.556837</td>
+                        </tr>
+                        <!--{% endfor %}  -->
+                    </tbody>
+                    <tbody>
+                        <!-- Loop through stability metrics and display results
+                        {% for model, metrics in stability_metrics.items() %} -->
+                        <tr>
+                            <td>Decision Tree Classifier</td>
+                            <td>0.541346</td>
+                            <td>0.580740</td>
+                            <td>0.471977</td>
+                            <td>0.520740</td>
+                            <td>0.560344</td>
+                        </tr>
+                        <!--{% endfor %}  -->
+                    </tbody>
+                    <tbody>
+                        <!-- Loop through stability metrics and display results
+                        {% for model, metrics in stability_metrics.items() %} -->
+                        <tr>
+                            <td>Random Forest Classifier</td>
+                            <td>0.593297</td>
+                            <td>0.614797</td>
+                            <td>0.614919</td>
+                            <td>0.614858</td>
+                            <td>0.634641</td>
+                        </tr>
+                        <!--{% endfor %}  -->
+                    </tbody>
+                </table>
+            </div>
+        </div>
+
+        <!-- Model Download Section -->
+        <div class="section">
+            <div class="card">
+                <h2>Download Best Model</h2>
+                <p>You can download the best model based on your evaluations for further use or deployment.</p>
+                <a href="{{ url_for('download_model') }}" class="btn">Download Best Model</a>
+            </div>
+        </div>
+    </div>
+
+    <footer class="footer">
+        <p>&copy; 2024 Model Performance Evaluation Dashboard | Powered by AI</p>
+    </footer>
+</body>
+</html>
